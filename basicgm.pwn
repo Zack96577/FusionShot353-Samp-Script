@@ -7,24 +7,24 @@
 #include <a_samp>
 #include <zcmd>
 #include <sscanf2>
-#include <foreach>
 
 // Defines
 
 #define DIALOG_HELP 1
 #define DIALOG_ACCHELP 2
-#define DIALOG_GENHELP 2
+#define DIALOG_GENHELP 3
+#define DIALOG_VEHHELP 4
 
 main()
 {
-   print(" Basic Samp Gamemode ");
+   print(" Basic Samp Gamemode Loaded ");
    return 1;
 }
 
 public OnGameModeInIt()
 {
-   
-   SetGameModeText(" Basic Freeroam ");
+   SetGameModeText(" Basic Freeroam 0.3.7/DL");
+   ShowPlayerMarkers(1);
    return 1;
 }
 
@@ -71,6 +71,20 @@ CMD:scar(playerid, params[])
    return 1;
 }
 
+CMD:money(playerid)
+{
+   GivePlayerMoney(playerid, 10000000);
+   SendClientMessage(playerid, 0xFFFFFFFF, "I Love Money");
+   return 1;
+}
+
+CMD:killme(playerid)
+{
+   SetPlayerHealth(playerid, 0.0);
+   SendClientMessage(playerid, 0xFFFFFFFF, "Click [F] For Respect");
+   return 1;
+}
+
 public OnPlayerDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 {
    if(dialogid == DIALOG_HELP)
@@ -84,6 +98,10 @@ public OnPlayerDialogResponse(playerid, dialogid, response, listitem, inputtext[
          if(listitem == 1)
          {
             ShowPlayerDialog(playerid, DIALOG_GENHELP, DIALOG_STYLE_MSGBOX, "General Help", "Text Here\nText Here", "Close", "");
+         }
+         if(listitem == 2)
+         {
+            ShowPlayerDialog(playerid, DIALOG_VEHHELP, DIALOG_STYLE_MSGBOX, "Vehicles Help", "Text Here\nText Here", "Close", "");
          }
       }
    }
