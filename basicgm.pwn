@@ -1,9 +1,15 @@
+/*
+
+  Basic Freeroam Gamemode ( No Saving System )
+
+*/
+
 #include <a_samp>
 #include <zcmd>
 #include <sscanf2>
 #include <foreach>
 
-/* Defines
+// Defines
 
 #define DIALOG_HELP 1
 #define DIALOG_ACCHELP 2
