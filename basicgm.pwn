@@ -18,7 +18,6 @@
 main()
 {
    print(" Basic Samp Gamemode Loaded ");
-   return 1;
 }
 
 public OnGameModeInIt()
